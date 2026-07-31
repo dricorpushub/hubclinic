@@ -1,26 +1,29 @@
-# HubClinic
+# HubClinic v0.1 — Upload fácil
 
-Sistema de gestão estratégica para clínicas. Projeto estático pronto para GitHub Pages.
+Esta versão foi preparada para upload direto pelo navegador do GitHub.
 
-## Publicação no GitHub
+## Importante
 
-1. Crie um repositório novo.
-2. Envie todo o conteúdo desta pasta para a raiz do repositório.
-3. Em **Settings → Pages**, selecione **Deploy from a branch**.
-4. Escolha a branch `main` e a pasta `/root`.
-5. Salve. O GitHub exibirá o endereço público.
+Todos os arquivos devem ficar na raiz do repositório:
 
-## Recursos incluídos
+- index.html
+- app.css
+- app.js
+- data.js
+- logo.png
+- tratamentos.json
+- bonificacoes.json
+- 404.html
+- README.md
 
-- Dashboard executivo
-- Comercial: tabela oficial com 114 tratamentos, CRUD, filtros e exportação
-- Funil comercial
-- Gestão: bonificação, faixa preta, excedentes, ranking, gerência, faturamento, premiação e resultados
-- Marketing: campanhas, planejamento, ideias, biblioteca e funil
-- Operação: fluxos, checklists e processos
-- Treinamentos: trilhas, aulas, materiais, avaliações e progresso
-- Dados salvos no navegador com LocalStorage
+## Publicação
 
-## Observação
+1. Exclua ou substitua os arquivos antigos.
+2. Use **Add file → Upload files**.
+3. Envie todos os arquivos deste pacote.
+4. Faça o commit.
+5. Aguarde o GitHub Pages concluir o deploy.
 
-Esta versão é um MVP front-end e não possui login ou banco de dados remoto. Para uso multiusuário, o próximo passo é conectar Supabase/Firebase e criar autenticação.
+Endereço esperado:
+
+`https://SEUUSUARIO.github.io/NOME-DO-REPOSITORIO/`

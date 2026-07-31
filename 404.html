@@ -1,1 +1,11 @@
-<!doctype html><meta charset="utf-8"><script>location.replace('./#/'+location.pathname.split('/').filter(Boolean).slice(-1)[0])</script>
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body>
+<script>
+  const parts = location.pathname.split('/').filter(Boolean);
+  const repo = parts.length ? '/' + parts[0] + '/' : '/';
+  location.replace(repo);
+</script>
+</body>
+</html>
