@@ -1,29 +1,27 @@
-# HubClinic v0.1 — Upload fácil
+# HubClinic v0.2 — Fundação profissional
 
-Esta versão foi preparada para upload direto pelo navegador do GitHub.
+Versão pública pronta para GitHub Pages.
 
-## Importante
+## O que mudou nesta versão
 
-Todos os arquivos devem ficar na raiz do repositório:
+- Nova abertura executiva do Dashboard
+- Atalhos rápidos para tarefas frequentes
+- Indicador consolidado de saúde da clínica
+- Central de atenção com prioridades
+- Dashboard reorganizado em widgets reutilizáveis
+- Melhor experiência responsiva
+- Base visual preparada para evolução dos módulos
 
-- index.html
-- app.css
-- app.js
-- data.js
-- logo.png
-- tratamentos.json
-- bonificacoes.json
-- 404.html
-- README.md
+## Upload no GitHub
 
-## Publicação
+Todos os arquivos deste pacote devem ficar na raiz do repositório.
 
-1. Exclua ou substitua os arquivos antigos.
-2. Use **Add file → Upload files**.
-3. Envie todos os arquivos deste pacote.
-4. Faça o commit.
-5. Aguarde o GitHub Pages concluir o deploy.
+No GitHub:
 
-Endereço esperado:
+1. **Add file → Upload files**
+2. Selecione todos os arquivos deste pacote
+3. Confirme a substituição dos arquivos existentes
+4. Faça o commit com `Atualizar HubClinic para v0.2`
+5. Aguarde o GitHub Pages finalizar o deploy
 
-`https://SEUUSUARIO.github.io/NOME-DO-REPOSITORIO/`
+A URL continua a mesma.

@@ -63,19 +63,61 @@ function dashboard(){
   const team=HUB_DATA.team.map(personResult), totalBonus=team.reduce((a,b)=>a+b.bonus,0);
   const ranking=[...team].filter(x=>x.name!=='Driele').sort((a,b)=>b.bonus-a.bonus);
   const months=[72,88,96,105,118,132,128];
-  return head('Seu centro de decisões','Indicadores essenciais para acompanhar a clínica sem depender de várias planilhas.')+
-  `<div class="kpi-grid">
+  const healthItems=[
+    {label:'Meta de faturamento',value:107,tone:'green'},
+    {label:'Conversão comercial',value:83,tone:'blue'},
+    {label:'Comparecimento',value:82,tone:'amber'},
+    {label:'Execução de campanhas',value:75,tone:'purple'}
+  ];
+  return `
+  <div class="welcome-card">
+    <div>
+      <span class="welcome-kicker">QUINTA-FEIRA, 31 DE JULHO</span>
+      <h2>Bom dia, Aline.</h2>
+      <p>A clínica está acima da meta de faturamento. O principal ponto de atenção hoje é o comparecimento.</p>
+    </div>
+    <div class="welcome-actions">
+      <button class="btn btn-secondary" onclick="navigate('resultados')">Ver resultados</button>
+      <button class="btn btn-primary" onclick="navigate('funil-comercial')">Abrir funil</button>
+    </div>
+  </div>
+
+  <div class="quick-actions">
+    <button class="quick-action" onclick="leadForm()"><span>＋</span><div><strong>Novo lead</strong><small>Adicionar ao funil</small></div></button>
+    <button class="quick-action" onclick="navigate('tabela')"><span>▦</span><div><strong>Consultar tabela</strong><small>Valores e condições</small></div></button>
+    <button class="quick-action" onclick="showSimulator()"><span>◇</span><div><strong>Simular bônus</strong><small>Calcular faixas</small></div></button>
+    <button class="quick-action" onclick="campaignForm()"><span>◉</span><div><strong>Nova campanha</strong><small>Planejar ação</small></div></button>
+  </div>
+
+  <div class="kpi-grid">
    ${kpi('Faturamento do mês',BRL.format(128450),'+ 8,7% em relação a junho','↗')}
    ${kpi('Bonificações previstas',BRL.format(totalBonus),ranking.length+' pessoas elegíveis','◇')}
    ${kpi('Conversão comercial','24,8%','+ 3,1 pontos no período','◎')}
    ${kpi('Campanhas ativas','3','1 campanha encerra esta semana','◉','down')}
   </div>
-  <div class="grid-2">
-    <div class="card panel"><div class="panel-head"><div><h3>Evolução do faturamento</h3><span>Últimos 7 meses · em milhares</span></div><span class="tag green">Meta 120 mil</span></div>
+
+  <div class="dashboard-grid">
+    <div class="card panel revenue-panel">
+      <div class="panel-head"><div><h3>Evolução do faturamento</h3><span>Últimos 7 meses · em milhares</span></div><span class="tag green">Meta 120 mil</span></div>
       <div class="chart">${months.map((v,i)=>`<div class="chart-col"><div class="bar" style="height:${v/1.45}%"></div><span class="chart-label">${['Jan','Fev','Mar','Abr','Mai','Jun','Jul'][i]}</span></div>`).join('')}</div>
     </div>
-    <div class="card panel"><div class="panel-head"><div><h3>Ranking de bonificação</h3><span>Bonificação individual</span></div><button class="mini-btn" onclick="navigate('bonificacao')">Ver tudo</button></div>
+
+    <div class="card panel health-panel">
+      <div class="panel-head"><div><h3>Saúde da clínica</h3><span>Índice consolidado do mês</span></div><span class="health-score">87</span></div>
+      <div class="health-ring"><div><strong>87%</strong><span>Bom desempenho</span></div></div>
+      <div class="health-list">${healthItems.map(x=>`<div class="health-item"><div><span>${x.label}</span><strong>${x.value}%</strong></div><div class="progress"><span class="${x.tone}" style="width:${x.value}%"></span></div></div>`).join('')}</div>
+    </div>
+
+    <div class="card panel ranking-panel">
+      <div class="panel-head"><div><h3>Ranking de bonificação</h3><span>Bonificação individual</span></div><button class="mini-btn" onclick="navigate('bonificacao')">Ver tudo</button></div>
       <div class="ranking">${ranking.slice(0,5).map((p,i)=>`<div class="rank-row"><div class="rank-pos">${i+1}</div><div class="rank-name"><strong>${p.name}</strong><span>${p.role}</span></div><div class="rank-value"><strong>${BRL.format(p.bonus)}</strong><span>previsto</span></div></div>`).join('')}</div>
+    </div>
+
+    <div class="card panel attention-panel">
+      <div class="panel-head"><div><h3>Central de atenção</h3><span>Prioridades que pedem ação</span></div><span class="tag red">3 alertas</span></div>
+      <button class="attention-item" onclick="navigate('resultados')"><span class="attention-dot red"></span><div><strong>Comparecimento abaixo da meta</strong><small>82% realizado · meta de 85%</small></div><b>→</b></button>
+      <button class="attention-item" onclick="navigate('campanhas')"><span class="attention-dot amber"></span><div><strong>Campanha encerra esta semana</strong><small>Revisar leads e última chamada</small></div><b>→</b></button>
+      <button class="attention-item" onclick="navigate('checklists')"><span class="attention-dot blue"></span><div><strong>3 tarefas operacionais pendentes</strong><small>Checklist de abertura diária</small></div><b>→</b></button>
     </div>
   </div>`;
 }
